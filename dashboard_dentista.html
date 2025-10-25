@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Dentista (DEMO)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .status-badge { padding: 4px 8px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; }
+        .status-pendente { border-left-color: #f39c12 !important; }
+        .status-pendente .status-badge { background-color: #ffe0b2; color: #e65100; }
+        .status-confirmado .status-badge { background-color: #c8e6c9; color: #1b5e20; }
+        .status-cancelado .status-badge { background-color: #ffcdd2; color: #b71c1c; }
+    </style>
+</head>
+<body class="dashboard-body">
+    
+    <div class="dashboard-grid">
+        <aside class="dashboard-sidebar">
+            <h2 class="dashboard-logo">Clínica Sorriso</h2>
+            <nav class="dashboard-nav">
+                <a href="#agenda" class="active"><i class="fas fa-calendar-check"></i> Minha Agenda</a>
+                <a href="#perfil"><i class="fas fa-user-edit"></i> Editar Perfil</a>
+            </nav>
+            <button class="btn-logout">Logout (Demo)</button>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h3 id="welcome-message">Bem-vindo(a), Dr(a). Demo!</h3>
+            </header>
+            
+            <section id="agenda" class="dashboard-content">
+                <h4>Solicitações Pendentes</h4>
+                <div id="agenda-pendente-lista">
+                    <div class="agendamento-item status-pendente">
+                        <p><strong>Paciente:</strong> Maria Souza (Demo)</p>
+                        <p><strong>Data:</strong> 25/11/2025, 14:00</p>
+                        <p><strong>Status:</strong> <span class="status-badge">pendente</span></p>
+                        <div class="acao-botoes">
+                            <button class="btn-success btn-acao" onclick="alert('Demo: Agendamento aceito!')">Aceitar</button>
+                            <button class="btn-danger btn-acao" onclick="alert('Demo: Agendamento recusado!')">Recusar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="agenda-historico" class="dashboard-content">
+                <h4>Histórico (Confirmados / Cancelados)</h4>
+                <div id="agenda-confirmada-lista">
+                    <div class="agendamento-item status-confirmado">
+                        <p><strong>Paciente:</strong> Carlos Pereira (Demo)</p>
+                        <p><strong>Data:</strong> 20/11/2025, 10:00</p>
+                        <p><strong>Status:</strong> <span class="status-badge">confirmado</span></p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="perfil" class="dashboard-content">
+                <h4>Editar Perfil</h4>
+                <div class="avatar-upload-container" style="text-align: center; margin-bottom: 2rem;">
+                    <img id="avatar-preview" src="https://via.placeholder.com/150/007BFF/FFFFFF?text=Dr.Demo" alt="Foto de Perfil" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #eee;">
+                    <form id="form-avatar" style="margin-top: 1rem;">
+                        <label for="avatar-input" class="btn-secondary">Trocar Foto</label>
+                        <input type="file" id="avatar-input" accept="image/png, image/jpeg" style="display: none;">
+                        <button type="button" onclick="alert('Demo: Upload simulado!')" class="btn-primary">Salvar Foto</button>
+                    </form>
+                </div>
+                <form class="dashboard-form" id="form-editar-perfil">
+                    <label for="perfil-nome">Nome Completo:</label>
+                    <input type="text" id="perfil-nome" value="Dr(a). Demo Silva">
+                    <label for="perfil-bio">Biografia (Pública):</label>
+                    <textarea id="perfil-bio" rows="4">Especialista em Odontologia Demonstrativa com 5 anos de experiência em HTML e CSS.</textarea>
+                    <label for="perfil-cro">CRO (Registro Profissional):</label>
+                    <input type="text" id="perfil-cro" value="DEMO-12345">
+                    <button type="button" onclick="alert('Demo: Perfil salvo!')" class="btn-primary">Salvar Alterações (Texto)</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    
+    <script src="js/demo.js"></script>
+</body>
+</html>

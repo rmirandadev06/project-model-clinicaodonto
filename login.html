@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-RTL">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Clínica Sorriso (DEMO)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <a href="index.html" class="btn-back-home">&larr; Voltar à Página Inicial</a>
+        <h2 class="login-title">Acessar Painel (DEMO)</h2>
+        <p style="text-align: center; margin-top: -1rem; margin-bottom: 1rem;">Clique em "Entrar" em qualquer perfil para ver o dashboard.</p>
+        
+        <div class="login-tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Paciente')">Paciente</button>
+            <button class="tab-link" onclick="openTab(event, 'Dentista')">Dentista</button>
+            <button class="tab-link" onclick="openTab(event, 'Admin')">Admin</button>
+        </div>
+
+        <div id="Paciente" class="tab-content" style="display: block;">
+            <form id="form-paciente"> 
+                <div class="form-group">
+                    <label for="pac-email">Email ou CPF</label>
+                    <input type="email" id="pac-email" placeholder="demo.paciente@email.com"> 
+                </div>
+                <div class="form-group">
+                    <label for="pac-senha">Senha</label>
+                    <input type="password" id="pac-senha" placeholder="******">
+                </div>
+                <button type="submit" class="btn-primary btn-block">Entrar (Demo Paciente)</button> 
+                <a href="register.html" class="form-link">Não tem conta? Cadastre-se (Demo)</a>
+            </form>
+        </div>
+
+        <div id="Dentista" class="tab-content">
+            <form id="form-dentista">
+                <div class="form-group">
+                    <label for="den-email">Email ou CRO</label>
+                    <input type="email" id="den-email" placeholder="demo.dentista@email.com"> 
+                </div>
+                <div class="form-group">
+                    <label for="den-senha">Senha</label>
+                    <input type="password" id="den-senha" placeholder="******">
+                </div>
+                <button type="submit" class="btn-primary btn-block">Entrar (Demo Dentista)</button>
+            </form>
+        </div>
+
+        <div id="Admin" class="tab-content">
+            <form id="form-admin">
+                <div class="form-group">
+                    <label for="admin-user">Usuário Master</label>
+                    <input type="email" id="admin-user" placeholder="demo.admin@email.com"> 
+                </div>
+                <div class="form-group">
+                    <label for="admin-senha">Senha</label>
+                    <input type="password" id="admin-senha" placeholder="******">
+                </div>
+                <button type="submit" class="btn-primary btn-block">Entrar (Demo Admin)</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) tabcontent[i].style.display = "none";
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) tablinks[i].className = tablinks[i].className.replace(" active", "");
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    
+    <script src="js/demo.js"></script>
+</body>
+</html>

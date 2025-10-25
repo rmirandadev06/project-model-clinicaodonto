@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo (DEMO)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style> #cro-group { display: none; } </style>
+</head>
+<body class="dashboard-body">
+    
+    <div class="dashboard-grid">
+        <aside class="dashboard-sidebar">
+            <h2 class="dashboard-logo">Admin</h2>
+            <nav class="dashboard-nav">
+                <a href="#painel" class="active"><i class="fas fa-chart-line"></i> Painel Geral</a>
+                <a href="#cadastrar"><i class="fas fa-user-plus"></i> Cadastrar Usuários</a>
+                <a href="#gerenciar"><i class="fas fa-user-cog"></i> Gerenciar Usuários</a>
+            </nav>
+            <button class="btn-logout">Logout (Demo)</button>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h3 id="welcome-message">Painel Administrativo (DEMO)</h3>
+            </header>
+            
+            <section id="painel" class="dashboard-content">
+                <h4>Agendamentos (Total)</h4>
+                <div class="stats-grid" id="painel-stats">
+                    <div class="stat-card">
+                        <h5>Pendentes</h5>
+                        <span id="stat-pendentes">1</span>
+                    </div>
+                    <div class="stat-card">
+                        <h5>Confirmados</h5>
+                        <span id="stat-confirmados">1</span>
+                    </div>
+                    <div class="stat-card">
+                        <h5>Cancelados</h5>
+                        <span id="stat-cancelados">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cadastrar" class="dashboard-content">
+                <h4>Cadastrar Novo Usuário</h4>
+                <form class="dashboard-form" id="form-cadastrar">
+                    <label for="cad-role">Tipo de Usuário:</label>
+                    <select id="cad-role">
+                        <option value="paciente">Paciente</option>
+                        <option value="dentista">Dentista</option>
+                    </select>
+                    <label for="cad-nome">Nome Completo:</label>
+                    <input type="text" id="cad-nome" placeholder="Nome do Novo Usuário">
+                    <label for="cad-email">Email:</label>
+                    <input type="email" id="cad-email" placeholder="email@exemplo.com">
+                    <label for="cad-senha">Senha Temporária:</label>
+                    <input type="password" id="cad-senha" placeholder="******">
+                    
+                    <div id="cro-group">
+                        <label for="cad-cro">CRO (Obrigatório para dentista):</label>
+                        <input type="text" id="cad-cro" placeholder="SP-12345">
+                    </div>
+                    
+                    <button type="button" onclick="alert('Demo: Usuário simulado criado!')" class="btn-primary">Cadastrar Usuário</button>
+                </form>
+            </section>
+
+            <section id="gerenciar" class="dashboard-content">
+                <h4>Gerenciar Usuários (Pacientes e Médicos)</h4>
+                <div id="lista-usuarios">
+                    <div class="gerenciar-item">
+                        <div>
+                            <p><strong>Dr. João Silva</strong> (dentista)</p>
+                            <small>CRO: SP-12345</small>
+                        </div>
+                        <button class="btn-secondary" onclick="alert('Demo: Senha resetada!')">Resetar Senha</button>
+                    </div>
+                    <div class="gerenciar-item">
+                        <div>
+                            <p><strong>Dra. Ana Costa</strong> (dentista)</p>
+                            <small>CRO: RJ-56789</small>
+                        </div>
+                        <button class="btn-secondary" onclick="alert('Demo: Senha resetada!')">Resetar Senha</button>
+                    </div>
+                    <div class="gerenciar-item">
+                        <div>
+                            <p><strong>Maria Souza</strong> (paciente)</p>
+                        </div>
+                        <button class="btn-secondary" onclick="alert('Demo: Senha resetada!')">Resetar Senha</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="js/demo.js"></script>
+</body>
+</html>

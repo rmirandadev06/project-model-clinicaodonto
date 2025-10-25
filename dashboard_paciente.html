@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Paciente (DEMO)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .status-badge { padding: 4px 8px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; }
+        .status-pendente .status-badge { background-color: #ffe0b2; color: #e65100; }
+        .status-confirmado .status-badge { background-color: #c8e6c9; color: #1b5e20; }
+        .status-cancelado .status-badge { background-color: #ffcdd2; color: #b71c1c; }
+    </style>
+</head>
+<body class="dashboard-body">
+    
+    <div class="dashboard-grid">
+        <aside class="dashboard-sidebar">
+            <h2 class="dashboard-logo">Clínica Sorriso</h2>
+            <nav class="dashboard-nav">
+                <a href="#agendar" class="active"><i class="fas fa-calendar-alt"></i> Agendar Consulta</a>
+                <a href="#meus-agendamentos"><i class="fas fa-clipboard-list"></i> Meus Agendamentos</a>
+            </nav>
+            <button class="btn-logout">Logout (Demo)</button>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h3 id="welcome-message">Bem-vindo(a), Paciente Demo!</h3>
+            </header>
+            
+            <section id="agendar" class="dashboard-content">
+                <h4>Agendar Nova Consulta</h4>
+                <form class="dashboard-form" id="form-agendar-demo">
+                    <label for="dentista-select">Médico Disponível:</label>
+                    <select id="dentista-select">
+                        <option value="">Selecione um dentista</option>
+                        <option value="1">Dr. João Silva</option>
+                        <option value="2">Dra. Ana Costa</option>
+                    </select>
+                    <label for="data-consulta">Data:</label>
+                    <input type="date" id="data-consulta" value="2025-11-20">
+                    <label for="hora-consulta">Horário:</label>
+                    <input type="time" id="hora-consulta" value="10:00">
+                    <button type="button" onclick="alert('Demo: Agendamento simulado!')" class="btn-primary">Confirmar Agendamento</button>
+                </form>
+            </section>
+
+            <section id="meus-agendamentos" class="dashboard-content">
+                <h4>Meus Agendamentos</h4>
+                <div id="meus-agendamentos-lista">
+                    <div class="agendamento-item status-confirmado">
+                        <p><strong>Dentista:</strong> Dr. João Silva</p>
+                        <p><strong>Data:</strong> 20/11/2025, 10:00</p>
+                        <p><strong>Status:</strong> <span class="status-badge">confirmado</span></p>
+                    </div>
+                    <div class="agendamento-item status-pendente">
+                        <p><strong>Dentista:</strong> Dra. Ana Costa</p>
+                        <p><strong>Data:</strong> 25/11/2025, 14:00</p>
+                        <p><strong>Status:</strong> <span class="status-badge">pendente</span></p>
+                        <button class="btn-danger btn-cancelar" onclick="alert('Demo: Consulta cancelada!')">Cancelar</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="js/demo.js"></script>
+</body>
+</html>
